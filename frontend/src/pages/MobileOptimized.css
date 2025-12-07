@@ -1,0 +1,289 @@
+/* 全局移动端优化样式 */
+
+/* 通用卡片移动端适配 */
+@media (max-width: 768px) {
+  /* 卡片网格 */
+  .stats-cards,
+  .card-grid,
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* 卡片内容 */
+  .card,
+  .stat-card,
+  .info-card {
+    padding: 12px !important;
+  }
+
+  .card h3,
+  .stat-card h3 {
+    font-size: 14px !important;
+  }
+
+  .card p,
+  .stat-value {
+    font-size: 18px !important;
+  }
+
+  /* 按钮适配 */
+  .btn,
+  .button {
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  /* 表单适配 */
+  .form-row,
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* 表格适配 */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+    font-size: 13px;
+  }
+
+  table th,
+  table td {
+    padding: 8px !important;
+  }
+
+  /* 模态框适配 */
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 10px !important;
+    max-height: 90vh !important;
+  }
+
+  .modal-header {
+    padding: 15px !important;
+  }
+
+  .modal-header h3 {
+    font-size: 16px !important;
+  }
+
+  .modal-body {
+    padding: 15px !important;
+  }
+
+  /* 列表适配 */
+  .list-item {
+    padding: 12px !important;
+  }
+
+  /* 标题适配 */
+  h1 {
+    font-size: 20px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  /* 间距适配 */
+  .container {
+    padding: 15px !important;
+  }
+
+  .section {
+    margin-bottom: 20px !important;
+  }
+
+  /* 筛选器适配 */
+  .filters,
+  .filter-bar {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .filter-item,
+  .filter-select {
+    width: 100% !important;
+  }
+
+  /* 图表适配 */
+  .chart-container {
+    min-height: 250px !important;
+    margin-bottom: 20px;
+  }
+
+  /* 隐藏在移动端不必要的元素 */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* 仅在移动端显示 */
+  .show-mobile {
+    display: block !important;
+  }
+
+  /* 操作按钮组 */
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  /* 分页器 */
+  .pagination {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* 小屏手机适配 (480px以下) */
+@media (max-width: 480px) {
+  /* 单列布局 */
+  .stats-cards,
+  .card-grid,
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 更小的文字 */
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 18px !important;
+  }
+
+  h2 {
+    font-size: 16px !important;
+  }
+
+  h3 {
+    font-size: 14px !important;
+  }
+
+  /* 更小的内边距 */
+  .container {
+    padding: 10px !important;
+  }
+
+  .card,
+  .stat-card {
+    padding: 10px !important;
+  }
+
+  /* 按钮 */
+  .btn,
+  .button {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+
+  /* 表单 */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  /* 模态框 */
+  .modal-content {
+    width: 98% !important;
+  }
+
+  /* 图表 */
+  .chart-container {
+    min-height: 200px !important;
+  }
+}
+
+/* 横屏手机优化 */
+@media (max-width: 900px) and (orientation: landscape) {
+  .modal-content {
+    max-height: 85vh !important;
+  }
+
+  .stats-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* 触摸优化 */
+@media (hover: none) and (pointer: coarse) {
+  /* 增大可点击区域 */
+  button,
+  a,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 移除hover效果 */
+  *:hover {
+    transform: none !important;
+  }
+
+  /* 点击反馈 */
+  button:active,
+  a:active,
+  .clickable:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
+
+/* 修复iOS Safari特殊问题 */
+@supports (-webkit-touch-callout: none) {
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* 防止iOS自动缩放 */
+  }
+}
+

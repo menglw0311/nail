@@ -1,0 +1,490 @@
+.statistics-page {
+  width: 100%;
+  padding: 0;
+}
+
+.filters-section {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.filter-group input {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.filter-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.current-month-display {
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  min-width: 120px;
+  text-align: center;
+}
+
+.reset-button {
+  padding: 10px 20px;
+  background: #f5f5f5;
+  color: #666;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-button:hover {
+  background: #e0e0e0;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-icon {
+  font-size: 32px;
+}
+
+.stat-title {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.stat-detail {
+  font-size: 14px;
+  color: #999;
+}
+
+.stat-card.income .stat-value {
+  color: #27ae60;
+}
+
+.stat-card.expense .stat-value {
+  color: #e74c3c;
+}
+
+.stat-card.balance .stat-value {
+  color: #3498db;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* 确保等宽 */
+  overflow: hidden;
+}
+
+.chart-section .calendar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* 确保等宽 */
+}
+
+.chart-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar-label {
+  width: 60px;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.bar-container {
+  flex: 1;
+  height: 40px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  transition: width 0.5s;
+  border-radius: 8px;
+  min-width: 60px; /* 确保即使数据很小也能显示 */
+}
+
+.income-bar {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.expense-bar {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.calendar-container {
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.calendar-month {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.calendar-nav-btn {
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.calendar-nav-btn:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.calendar-nav-btn:active {
+  background: #d0d0d0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  flex: 1;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 600;
+  color: #666;
+  font-size: 12px;
+  padding: 3px 1px;
+  background: #f5f5f5;
+  border-radius: 2px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  transition: all 0.3s;
+  position: relative;
+  min-height: 0;
+}
+
+.calendar-day:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.calendar-day.empty {
+  border: none;
+  background: transparent;
+}
+
+.calendar-day.today {
+  border-color: #667eea;
+  background: #f0f0ff;
+}
+
+.calendar-day.has-data {
+  border-color: #4facfe;
+}
+
+.calendar-day-number {
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 1px;
+  line-height: 1;
+}
+
+.calendar-day.today .calendar-day-number {
+  color: #667eea;
+  font-weight: 700;
+}
+
+.calendar-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.2;
+  min-height: 20px;
+}
+
+.calendar-income {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.calendar-expense {
+  color: #e74c3c;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.calendar-no-data {
+  color: #ccc;
+  font-size: 7px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.chart-type-toggle {
+  display: flex;
+  gap: 8px;
+  background: #f5f5f5;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.chart-type-toggle button {
+  padding: 6px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.chart-type-toggle button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.pie-chart-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.pie-chart {
+  flex-shrink: 0;
+  max-width: 200px;
+}
+
+.pie-chart svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.pie-legend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.legend-item:hover {
+  background: #f9f9f9;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.legend-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 12px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legend-amount {
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.legend-percent {
+  color: #999;
+  font-size: 11px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: 40px;
+  text-align: right;
+}
+
