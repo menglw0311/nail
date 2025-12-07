@@ -145,13 +145,34 @@ install_nginx() {
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
         log_info "安装Nginx..."
         if [ "$OS" = "centos" ]; then
-            yum install -y nginx
+            # 检查是否有dnf（CentOS 8+）
+            if command -v dnf &> /dev/null; then
+                log_info "使用dnf安装Nginx..."
+                # 安装EPEL仓库（如果还没有）
+                dnf install -y epel-release || true
+                dnf install -y nginx
+            else
+                log_info "使用yum安装Nginx..."
+                # 安装EPEL仓库（如果还没有）
+                yum install -y epel-release || true
+                yum install -y nginx
+            fi
             systemctl enable nginx
+            systemctl start nginx
         else
             apt-get install -y nginx
             systemctl enable nginx
+            systemctl start nginx
         fi
-        log_success "Nginx安装完成"
+        
+        # 验证安装
+        if command -v nginx &> /dev/null; then
+            log_success "Nginx安装成功: $(nginx -v 2>&1)"
+        else
+            log_error "Nginx安装失败，请手动安装"
+            log_info "可以尝试: yum install -y epel-release && yum install -y nginx"
+            log_warning "继续部署，稍后请手动安装Nginx"
+        fi
     else
         log_warning "跳过Nginx安装，请手动配置反向代理"
     fi
